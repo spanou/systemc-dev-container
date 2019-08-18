@@ -25,10 +25,11 @@ WORKDIR /home/builder
 
 #Set up the Git Acount
 RUN git config --global user.name "builder"
-RUN git config --global user.email "sakis.panou@gmail.com"
+RUN git config --global user.email "builder@xilinx.com"
 
 #Copy the .vimrc file builder's home directory
 COPY .vimrc /home/builder
+COPY .bashrc /home/builder 
 
 # Download Accelleras' SystemC 2.3.3 Library and Build it.
 RUN mkdir sources \
