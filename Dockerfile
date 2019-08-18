@@ -6,7 +6,7 @@ MAINTAINER Sakis Panou "sakis.panou@gmail.com"
 RUN apt-get update
 
 # Install all the packages we need for a full yocto build.
-RUN apt-get -y install git-core build-essential wget diffstat gcc-multilib debianutils xterm sudo locales locales-all autoconf automake vim
+RUN apt-get -y install git-core build-essential wget diffstat gcc-multilib debianutils xterm sudo locales locales-all autoconf automake vim gdb
 
 # Set the Locales needed by the Yocto packages
 ENV LC_ALL en_US.UTF-8
@@ -25,7 +25,10 @@ WORKDIR /home/builder
 
 #Set up the Git Acount
 RUN git config --global user.name "builder"
-RUN git config --global user.email "builder@xilinx.com"
+RUN git config --global user.email "sakis.panou@gmail.com"
+
+#Copy the .vimrc file builder's home directory
+COPY .vimrc /home/builder
 
 # Download Accelleras' SystemC 2.3.3 Library and Build it.
 RUN mkdir sources \
