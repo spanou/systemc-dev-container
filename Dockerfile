@@ -23,9 +23,9 @@ USER builder
 # Set the working home directory to the one for builder
 WORKDIR /home/builder
 
-#Set up the Git Acount
+#Set up the Git Acount/
 RUN git config --global user.name "builder"
-RUN git config --global user.email "builder@xilinx.com"
+RUN git config --global user.email "builder@gmail.com"
 
 #Copy the .vimrc file builder's home directory
 COPY .vimrc /home/builder
